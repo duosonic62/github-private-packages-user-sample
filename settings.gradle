@@ -1,0 +1,21 @@
+rootProject.name = "com.example.github-private-pavkages-user"
+
+// must update this version before publish
+def moduleVersion = '0.0.1-SNAPSHOT'
+
+dependencyResolutionManagement {
+    repositories {
+        maven {
+            url('https://maven.pkg.github.com/duosonic62/private-version-catalog')
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
+            }
+        }
+    }
+    versionCatalogs {
+        libs {
+            from("com.example:private-version-catalog:0.0.2-SNAPSHOT")
+        }
+    }
+}
